@@ -4,6 +4,7 @@ from django.contrib import admin
 from .models import *
 from unicefsurvey.settings_local import *
 
+from unicefsurvey.settings import *
 
 class QuestionInline(admin.TabularInline):
     model = Question

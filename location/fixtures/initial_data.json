@@ -1,0 +1,51 @@
+[
+  {
+    "model": "location.region",
+    "pk": 1,
+    "fields": {
+      "title": "Чуй"
+    }
+  },
+  {
+    "model": "location.region",
+    "pk": 2,
+    "fields": {
+      "title": "Ош"
+    }
+  },
+  {
+    "model": "location.region",
+    "pk": 3,
+    "fields": {
+      "title": "Иссык-Куль"
+    }
+  },
+  {
+    "model": "location.region",
+    "pk": 4,
+    "fields": {
+      "title": "Нарын"
+    }
+  },
+  {
+    "model": "location.region",
+    "pk": 5,
+    "fields": {
+      "title": "Талас"
+    }
+  },
+  {
+    "model": "location.region",
+    "pk": 6,
+    "fields": {
+      "title": "Баткен"
+    }
+  },
+  {
+    "model": "location.region",
+    "pk": 1,
+    "fields": {
+      "title": "Джалал-Абад"
+    }
+  }
+]
