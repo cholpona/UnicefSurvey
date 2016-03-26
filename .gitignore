@@ -1,2 +1,3 @@
 *.pyc
 .idea
+unicefsurvey/settings_local.py
