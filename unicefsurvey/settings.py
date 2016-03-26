@@ -1,3 +1,4 @@
+
 """
 Django settings for unicefsurvey project.
 
@@ -30,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+    'location.apps.LocationConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
