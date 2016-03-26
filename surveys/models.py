@@ -32,7 +32,7 @@ class Question(models.Model):
 
 
 class Poll(models.Model):
-	survey = models.ForeignKey(Survey)
+    survey = models.ForeignKey(Survey)
     user = models.ForeignKey(User)
     gender = models.CharField(choices=GENDER_CHOICES)
     age = models.IntegerField()
@@ -40,6 +40,6 @@ class Poll(models.Model):
     lng = models.CharField(max_length=255)
 
 class Answer(models.Model):
-	poll = models.ForeignKey(Poll)
-	question = models.ForeignKey(Question)
-	answer = models.CharField(choices=ANSWER_CHOICES)
+    poll = models.ForeignKey(Poll)
+    question = models.ForeignKey(Question)
+    answer = models.CharField(choices=ANSWER_CHOICES)
