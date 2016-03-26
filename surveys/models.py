@@ -23,7 +23,7 @@ class Survey(models.Model):
     end_date = models.DateField()
 
     def __unicode__(self):
-        return self.title
+        return u"%s" % self.title
 
 
 class SurveyCity(models.Model):
@@ -36,7 +36,7 @@ class Question(models.Model):
     text = models.CharField(max_length=255)
 
     def __unicode__(self):
-        return self.text
+        return u"%s" % self.text
 
 
 class Poll(models.Model):
