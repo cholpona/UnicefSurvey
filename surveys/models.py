@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 from location.models import City
-from staff.models import Worker
+# from staff.models import Worker
 
 ANSWER_CHOICES = (
     ('yes', 'Yes'),
@@ -42,7 +42,7 @@ class Question(models.Model):
 
 class Poll(models.Model):
     survey = models.ForeignKey(Survey)
-    user = models.ForeignKey(Worker)
+    # worker = models.ForeignKey(Worker)
     gender = models.CharField(choices=GENDER_CHOICES, max_length=2)
     age = models.IntegerField()
     lat = models.CharField(max_length=255)
