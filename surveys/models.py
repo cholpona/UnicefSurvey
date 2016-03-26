@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.db import models
 from location.models import City
 from staff.models import Worker
@@ -23,7 +24,7 @@ class Survey(models.Model):
     end_date = models.DateField()
 
     def __unicode__(self):
-        return u"%s" % self.title
+        return self.title
 
 
 class SurveyCity(models.Model):
@@ -36,7 +37,7 @@ class Question(models.Model):
     text = models.CharField(max_length=255)
 
     def __unicode__(self):
-        return u"%s" % self.text
+        return self.text
 
 
 class Poll(models.Model):
