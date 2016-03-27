@@ -16,5 +16,6 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls), name='admin'),
     url(r'^staff/', include('staff.urls')),
+    url(r'^surveys/', include('surveys.urls')),
     url(r'^', include(router.urls)),
 )

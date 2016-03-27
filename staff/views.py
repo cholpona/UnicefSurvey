@@ -7,7 +7,12 @@ from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import View
 #from jose import jws
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
+from staff.models import Worker
 from surveys.models import SurveyCity
+from surveys.serializer import SurveyCitySerializer
 
 
 class AuthenticationView(View):
@@ -29,6 +34,7 @@ class AuthenticationView(View):
         else:
             html = "<html><body>Fail.</body></html>"
             return HttpResponse(html)
+
 
 class SurveyCitiesList(View):
     def post(self,request):
