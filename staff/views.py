@@ -1,8 +1,7 @@
-<<<<<<< HEAD
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from .serializers import UserSerializer
-=======
+
 import datetime
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import AuthenticationForm
@@ -46,12 +45,6 @@ class SurveyCitiesList(View):
         worker = self.request.GET("user")
         survey_city_list = SurveyCity.objects.filter(city__exact=worker.city)
 
-
-
-
-
-
->>>>>>> f14bf508d18d0bc9309a76ff05b85c87064c014e
 
 
 class UserViewSet(viewsets.ModelViewSet):

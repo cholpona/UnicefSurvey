@@ -3,6 +3,7 @@ from rest_framework import viewsets
 from .models import *
 
 from staff.models import Worker
+from .serializer import *
 from .serializer import SurveyCitySerializer
 from .serializer import QuestionSerializer
 from .serializer import SurveySerializer
