@@ -20,7 +20,8 @@ class SurveyAdmin(admin.ModelAdmin):
         QuestionInline,
     ]
     def statistics_link(self, obj):
-        return "<a href='%s' target='_blank'>%s</>" % ("link", ("View statistics"))
+        link = '/chart/%s' % str(obj.id)
+        return "<a href='%s' target='_blank'>%s</>" % (link, ("View statistics"))
     statistics_link.allow_tags = True
 
 class AnswerAdmin(admin.ModelAdmin):

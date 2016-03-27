@@ -25,6 +25,7 @@ urlpatterns = patterns('',
     url(r'^staff/', include('staff.urls')),
     url(r'^submit', "surveys.views.ParsePoll", name='submit'),
 
+    url(r'chart/(?P<pk>[0-9]+)$', show_chart),
     url(r'^surveys/', include('surveys.urls')),
     url(r'^', include(router.urls)),
 
