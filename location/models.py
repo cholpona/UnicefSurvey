@@ -8,7 +8,7 @@ class Region(models.Model):
     title = models.CharField(max_length=255)
 
     def __unicode__(self):
-        return u"%s" % (self.title)
+        return "%s" % (self.title)
 
 
     class Meta:
@@ -23,8 +23,22 @@ class City(models.Model):
     lng = models.CharField(max_length=255)
 
     def __unicode__(self):
-        return u"%s, %s" % (self.title, self.region.title)
+        return "%s, %s" % (self.title, self.region.title)
 
     class Meta:
         verbose_name = _("City")
         verbose_name_plural = _("Cities")
+
+
+
+class Location(models.Model):
+    city = models.ForeignKey(City)
+
+    def __unicode__(self):
+        return "%s" % (self.city)
+
+    class Meta:
+        verbose_name = _("Location")
+        verbose_name_plural = _("Locations")
+
+
