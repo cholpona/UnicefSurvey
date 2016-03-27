@@ -22,6 +22,7 @@ class Survey(models.Model):
     title = models.CharField(blank=False, max_length=255)
     start_date = models.DateField()
     end_date = models.DateField()
+    is_active = models.BooleanField(default=False)
 
     def __unicode__(self):
         return self.title
