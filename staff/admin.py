@@ -11,10 +11,11 @@ class WorkerInline(admin.TabularInline):
     extra = 1
 
 
-class UserAdmin(BaseUserAdmin):
+class UserAdmin(admin.ModelAdmin):
     inlines = [
         WorkerInline,
     ]
+    fields = ('username', 'password', 'first_name', 'last_name', 'email')
 
 class WorkerAdmin(admin.ModelAdmin):
     list_display = ['__unicode__', 'role']
