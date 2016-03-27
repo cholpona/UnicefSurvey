@@ -58,6 +58,7 @@ INSTALLED_APPS = (
     'rest_framework',
 )
 
+
 ROOT_URLCONF = 'unicefsurvey.urls'
 
 WSGI_APPLICATION = 'unicefsurvey.wsgi.application'
@@ -112,6 +113,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
+
+
 
 STATIC_URL = '/static/'
 
