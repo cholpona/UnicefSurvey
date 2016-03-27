@@ -24,4 +24,4 @@ class WorkerAdmin(admin.ModelAdmin):
 
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
-admin.site.register(Worker, WorkerAdmin)
+# admin.site.register(Worker, WorkerAdmin)
