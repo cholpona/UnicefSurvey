@@ -1,6 +1,7 @@
+# -*- coding: utf-8 -*-
 from django.db import models
 from location.models import City
-from staff.models import Worker
+# from staff.models import Worker
 
 ANSWER_CHOICES = (
     ('yes', 'Yes'),
@@ -23,7 +24,7 @@ class Survey(models.Model):
     end_date = models.DateField()
 
     def __unicode__(self):
-        return u"%s" % self.title
+        return self.title
 
 
 class SurveyCity(models.Model):
@@ -36,12 +37,12 @@ class Question(models.Model):
     text = models.CharField(max_length=255)
 
     def __unicode__(self):
-        return u"%s" % self.text
+        return self.text
 
 
 class Poll(models.Model):
     survey = models.ForeignKey(Survey)
-    user = models.ForeignKey(Worker)
+    # worker = models.ForeignKey(Worker)
     gender = models.CharField(choices=GENDER_CHOICES, max_length=2)
     age = models.IntegerField()
     lat = models.CharField(max_length=255)

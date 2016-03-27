@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
@@ -29,6 +30,7 @@ class City(models.Model):
         verbose_name_plural = _("Cities")
 
 
+
 class Location(models.Model):
     city = models.ForeignKey(City)
 
@@ -38,4 +40,5 @@ class Location(models.Model):
     class Meta:
         verbose_name = _("Location")
         verbose_name_plural = _("Locations")
+
 

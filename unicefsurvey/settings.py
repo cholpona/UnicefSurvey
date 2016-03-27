@@ -31,6 +31,16 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+
+MIDDLEWARE_CLASSES = (
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+)
 INSTALLED_APPS = (
 
     'django.contrib.admin',
@@ -44,20 +54,7 @@ INSTALLED_APPS = (
     'location.apps.LocationConfig',
     'staff.apps.StaffConfig',
     'surveys',
-
-    #third party apps
     'rest_framework',
-
-)
-
-MIDDLEWARE_CLASSES = (
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
 ROOT_URLCONF = 'unicefsurvey.urls'
