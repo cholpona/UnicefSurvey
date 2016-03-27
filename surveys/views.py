@@ -3,6 +3,7 @@ from datetime import date
 from rest_framework.response import Response
 from rest_framework import viewsets
 from .models import *
+from django.shortcuts import get_object_or_404, render
 
 from staff.models import Worker
 from .serializer import *
@@ -88,3 +89,11 @@ def getSurveyQuestions(request,pk):
     serializer = QuestionSerializer(list,many=True)
     return Response(serializer.data)
 
+
+def show_chart(request, pk=None):
+    survey = get_object_or_404(Survey, pk=pk)
+    context = {
+        'survey': survey,
+    }
+
+    return render(request, 'results.html', context)
