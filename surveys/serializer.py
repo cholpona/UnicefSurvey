@@ -27,4 +27,3 @@ class SurveyCitySerializer(serializers.ModelSerializer):
     class Meta:
         model = SurveyCity
         fields = ('survey', 'city',)
->>>>>>> f14bf508d18d0bc9309a76ff05b85c87064c014e
