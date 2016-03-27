@@ -15,10 +15,13 @@ class QuestionAdmin(admin.ModelAdmin):
 
 
 class SurveyAdmin(admin.ModelAdmin):
-    list_display = ['title', 'start_date', 'end_date']
+    list_display = ['title', 'start_date', 'end_date','statistics_link']
     inlines = [
         QuestionInline,
     ]
+    def statistics_link(self, obj):
+        return "<a href='%s' target='_blank'>%s</>" % ("link", ("View statistics"))
+    statistics_link.allow_tags = True
 
 
 admin.site.register(Survey, SurveyAdmin)
