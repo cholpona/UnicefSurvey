@@ -6,4 +6,4 @@ from .models import *
 class QuestionSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Question
-        fields = ('url', 'text', 'survey__title')
+        fields = ('url', 'text')
