@@ -75,6 +75,10 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
     ),
+
+    'DEFAULT_PARSER_CLASSES': (
+        'rest_framework.parsers.JSONParser',
+    ),
     'JWT_AUTH': {
         'JWT_VERIFY_EXPIRATION': False,
         'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=3000),

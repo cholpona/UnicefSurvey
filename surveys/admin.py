@@ -23,7 +23,13 @@ class SurveyAdmin(admin.ModelAdmin):
         return "<a href='%s' target='_blank'>%s</>" % ("link", ("View statistics"))
     statistics_link.allow_tags = True
 
+class AnswerAdmin(admin.ModelAdmin):
+    list_display = ('poll', 'question' ,'answer')
+    class Meta:
+        model = Answer
 
+admin.site.register(Answer, AnswerAdmin)
+admin.site.register(Poll)
 admin.site.register(Survey, SurveyAdmin)
 admin.site.register(Question)
 admin.site.register(SurveyCity)

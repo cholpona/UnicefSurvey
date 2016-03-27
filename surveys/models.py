@@ -49,8 +49,14 @@ class Poll(models.Model):
     lat = models.CharField(max_length=255)
     lng = models.CharField(max_length=255)
 
+    def __unicode__(self):
+        return self.survey.title
+
 
 class Answer(models.Model):
     poll = models.ForeignKey(Poll)
     question = models.ForeignKey(Question)
-    answer = models.CharField(choices=ANSWER_CHOICES, max_length=2)
+    answer = models.CharField(choices=ANSWER_CHOICES, max_length=10)
+
+    def __unicode__(self):
+        return self.poll.survey.title
