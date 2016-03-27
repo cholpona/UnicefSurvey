@@ -4,6 +4,7 @@ from .models import *
 from staff.models import Worker
 from .serializer import SurveyCitySerializer
 from .serializer import QuestionSerializer
+from .serializer import SurveySerializer
 from rest_framework.decorators import api_view
 #  Create your views here.
 
@@ -16,5 +17,8 @@ class QuestionViewSet(viewsets.ModelViewSet):
 @api_view()
 def getSurveyList(request):
     list = SurveyCity.objects.filter(city=request.user.worker.city)
+    # surveylist = []
+    # for surveycity in list:
+    #     surveylist.append(surveycity.survey)
     serializer = SurveyCitySerializer(list, many=True)
     return Response(serializer.data)
