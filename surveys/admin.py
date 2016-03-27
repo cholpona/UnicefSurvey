@@ -20,7 +20,13 @@ class SurveyAdmin(admin.ModelAdmin):
         QuestionInline,
     ]
 
+class AnswerAdmin(admin.ModelAdmin):
+    list_display = ('poll', 'question' ,'answer')
+    class Meta:
+        model = Answer
 
+admin.site.register(Answer, AnswerAdmin)
+admin.site.register(Poll)
 admin.site.register(Survey, SurveyAdmin)
 admin.site.register(Question)
 admin.site.register(SurveyCity)
