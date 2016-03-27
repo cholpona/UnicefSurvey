@@ -127,10 +127,10 @@ def ParsePoll(request):
         "lng": 1,
         "questions": [{
             "question_id": 1,
-            "answer": "yes"
-        }, {
-            "question_id": 2,
             "answer": "no"
+        }, {
+            "question_id": 3,
+            "answer": "maybe"
         }]
     }
     survey_id = json["survey_id"]

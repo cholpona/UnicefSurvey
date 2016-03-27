@@ -56,7 +56,7 @@ class Poll(models.Model):
 class Answer(models.Model):
     poll = models.ForeignKey(Poll)
     question = models.ForeignKey(Question)
-    answer = models.CharField(choices=ANSWER_CHOICES, max_length=10)
+    answer = models.CharField(choices=ANSWER_CHOICES, max_length=120)
 
     def __unicode__(self):
         return self.poll.survey.title
