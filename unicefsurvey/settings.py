@@ -45,6 +45,9 @@ INSTALLED_APPS = (
     'staff.apps.StaffConfig',
     'surveys',
 
+    #third party apps
+    'rest_framework',
+
 )
 
 MIDDLEWARE_CLASSES = (
@@ -64,6 +67,18 @@ WSGI_APPLICATION = 'unicefsurvey.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+    ),
+}
+
 
 DATABASES = {
     'default': {

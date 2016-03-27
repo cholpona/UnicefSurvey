@@ -47,5 +47,58 @@
     "fields": {
       "title": "Джалал-Абад"
     }
+  },
+
+  {
+    "model": "location.city",
+    "pk": 1,
+    "fields": {
+      "title": "Бишкек",
+      "region":1,
+      "lat":"1",
+      "lng":"2"
+    }
+  },
+  {
+    "model": "location.city",
+    "pk": 2,
+    "fields": {
+      "title": "Токмок",
+      "region":1,
+      "lat":"2",
+      "lng":"2"
+    }
+  },
+  {
+    "model": "location.city",
+    "pk": 3,
+    "fields": {
+      "title": "Ош",
+      "region":2,
+      "lat":"2",
+      "lng":"2"
+    }
+  },
+   {
+    "model": "location.city",
+    "pk": 4,
+    "fields": {
+      "title": "Каракол",
+      "region":3,
+      "lat":"3",
+      "lng":"2"
+    }
+  },
+  {
+    "model": "location.city",
+    "pk": 5,
+    "fields": {
+      "title": "Нарын",
+      "region":4,
+      "lat":"4",
+      "lng":"2"
+    }
   }
+
+
 ]
