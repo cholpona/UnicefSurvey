@@ -7,6 +7,7 @@ https://docs.djangoproject.com/en/1.7/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.7/ref/settings/
 """
+import datetime
 
 QUESTION_PER_SURVEY = 5
 
@@ -74,9 +75,14 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
     ),
+
     'DEFAULT_PARSER_CLASSES': (
         'rest_framework.parsers.JSONParser',
     ),
+    'JWT_AUTH': {
+        'JWT_VERIFY_EXPIRATION': False,
+        'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=3000),
+    }
 }
 
 

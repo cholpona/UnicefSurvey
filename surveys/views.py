@@ -1,11 +1,13 @@
-from django.shortcuts import render
+from rest_framework.response import Response
 from rest_framework import viewsets
 from .models import *
-from .serializer import *
 
-from rest_framework import status
+from staff.models import Worker
+from .serializer import SurveyCitySerializer
+from .serializer import QuestionSerializer
+from .serializer import SurveySerializer
 from rest_framework.decorators import api_view
-from rest_framework.response import Response
+
 #  Create your views here.
 from rest_framework.views import APIView
 from django.http import Http404, HttpResponse
@@ -154,3 +156,14 @@ def ParsePoll(request):
         answer.save()
 
     return HttpResponse("<h1>Ok</h1>")
+
+
+@api_view()
+def getSurveyList(request):
+    list = SurveyCity.objects.filter(city=request.user.worker.city)
+    # surveylist = []
+    # for surveycity in list:
+    #     surveylist.append(surveycity.survey)
+    serializer = SurveyCitySerializer(list, many=True)
+    return Response(serializer.data)
+

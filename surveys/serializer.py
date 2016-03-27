@@ -9,13 +9,14 @@ class QuestionSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('url', 'text')
 
 
-class SurveySerializer(serializers.HyperlinkedModelSerializer):
+class SurveySerializer(serializers.ModelSerializer):
     class Meta:
         model = Survey
-        fields = ('url', 'title', 'start_date', 'end_date', 'is_active')
+        fields = ('id', 'title', )
 
 
-class AnswerSerializer(serializers.HyperlinkedModelSerializer):
+class SurveyCitySerializer(serializers.ModelSerializer):
+    survey = SurveySerializer()
     class Meta:
-        model = Answer
-        fields = ('url', 'question', 'answer')
+        model = SurveyCity
+        fields = ('survey', 'city',)

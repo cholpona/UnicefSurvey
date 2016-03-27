@@ -31,14 +31,3 @@ class City(models.Model):
 
 
 
-class Location(models.Model):
-    city = models.ForeignKey(City)
-
-    def __unicode__(self):
-        return "%s" % (self.city)
-
-    class Meta:
-        verbose_name = _("Location")
-        verbose_name_plural = _("Locations")
-
-

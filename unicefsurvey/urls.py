@@ -23,7 +23,9 @@ urlpatterns = patterns('',
     url(r'^', include(router.urls)),
     url(r'^admin/', include(admin.site.urls), name='admin'),
     url(r'^staff/', include('staff.urls')),
-
     url(r'^submit', "surveys.views.ParsePoll", name='submit'),
+
+    url(r'^surveys/', include('surveys.urls')),
+    url(r'^', include(router.urls)),
 
 )
