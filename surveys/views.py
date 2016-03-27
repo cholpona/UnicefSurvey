@@ -1,3 +1,5 @@
+from datetime import date
+
 from rest_framework.response import Response
 from rest_framework import viewsets
 from .models import *
@@ -29,93 +31,7 @@ class AnswerViewSet(viewsets.ModelViewSet):
     serializer_class = AnswerSerializer
 
 
-class QuestionList(viewsets.ModelViewSet):
-    """
-    List all questions, or create a new one.
-    """
-    def get_queryset(self):
-        questions = Question.objects.all()
-        serializer = QuestionSerializer(questions, many=True)
-        return Response(serializer.data)
 
-    def post(self, request, format=None):
-        serializer = QuestionSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-class SurveyDetail(viewsets.ModelViewSet):
-    """
-    Retrieve, update or delete a snippet instance.
-    """
-    def get_object(self, pk):
-        try:
-            return Survey.objects.get(pk=pk)
-        except Question.DoesNotExist:
-            raise Http404
-
-    def get(self, request, pk, format=None):
-        survey = self.get_object(pk)
-        serializer = QuestionSerializer(survey)
-        return Response(serializer.data)
-
-    def put(self, request, pk, format=None):
-        question = self.get_object(pk)
-        serializer = QuestionSerializer(question, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-    def delete(self, request, pk, format=None):
-        question = self.get_object(pk)
-        question.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
-
-@api_view(['GET', 'POST'])
-def question_list(request):
-    """
-    List all questions, or create a new one.
-    """
-    if request.method == 'GET':
-        questions = Question.objects.all()
-        serializer = QuestionSerializer(questions, many=True)
-        return Response(serializer.data)
-
-    elif request.method == 'POST':
-        serializer = QuestionSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-@api_view(['GET', 'PUT', 'DELETE'])
-def question_detail(request, pk):
-    """
-    Retrieve, update or delete a snippet instance.
-    """
-    try:
-        question = Question.objects.get(pk=pk)
-    except Question.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
-
-    if request.method == 'GET':
-        serializer = QuestionSerializer(question)
-        return Response(serializer.data)
-
-    elif request.method == 'PUT':
-        serializer = QuestionSerializer(question, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-    elif request.method == 'DELETE':
-        question.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
 
 def ParsePoll(request):
 
@@ -161,10 +77,14 @@ def ParsePoll(request):
 
 @api_view()
 def getSurveyList(request):
-    list = SurveyCity.objects.filter(city=request.user.worker.city)
-    # surveylist = []
-    # for surveycity in list:
-    #     surveylist.append(surveycity.survey)
+    list = SurveyCity.objects.filter(city=request.user.worker.city,is_Active=True,start_date__lte=date.today(), end_date__gre=date.today())
     serializer = SurveyCitySerializer(list, many=True)
+    return Response(serializer.data)
+
+
+@api_view()
+def getSurveyQuestions(request,pk):
+    list = Question.objects.filter(survey__pk =pk)
+    serializer = QuestionSerializer(list,many=True)
     return Response(serializer.data)
 
